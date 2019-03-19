@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="index.js"></script>
+    <link href="css/welcome.css" rel="stylesheet" type="text/css"/>
+    <style>
+        .img0 {
+            background-repeat:no-repeat;
+            background-position:0px 0px;
+        }
+        .img1 {
+            background-repeat:no-repeat;
+            background-position:-168px 0px;
+        }
+        .img2 {
+            background-repeat:no-repeat;
+            background-position:-336px 0px;
+        }
+        .img3 {
+            background-repeat:no-repeat;
+            background-position:0px -168px;
+        }
+        .img4 {
+            background-repeat:no-repeat;
+            background-position:-168px -168px;
+        }
+        .img5 {
+            background-repeat:no-repeat;
+            background-position:-336px -168px;
+        }
+        .img6 {
+            background-repeat:no-repeat;
+            background-position:0px -336px;
+        }
+        .img7 {
+            background-repeat:no-repeat;
+            background-position:-168px -336px;
+        }
+        .img8 {
+            background-repeat:no-repeat;
+            background-position:-336px -336px;
+        }
+        td {
+            width:168px;
+            height:168px;
+            background-size:504px 504px;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+</head>
+<body>
+<div class="welcome" >
+    <div class="logo"></div>
+    <div class="desc">
+        <p>30秒内完成拼图</p>
+        <p>就有奖励哦！</p>
+    </div>
+    <div class="startBtn">
+        开始游戏
+    </div>
+</div>
+<div class="game">
+    <div class="countDown">
+        <div id="timer" style="color:red" class="time"></div>
+    </div>
+<div id="img" style="margin: 0 auto;width: 550px;height: 550px;color: yellow;">
+    <table cellpadding="0px" cellspacing="5px" width="529px" height="529px" style="overflow: hidden;">
+        <tbody><tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        </tbody></table>
+</div>
+<div id="GameButton" class="GameButton">
+    <div id="startGame" class="newGame">开始游戏</div>
+</div>
+
+</div>
+<div class="finish">
+    <div class="notice">
+        恭喜您 完成游戏
+    </div>
+</div>
+<div class="fail">
+    <div class="notice">
+        很遗憾，您和奖品擦肩而过
+    </div>
+</div>
+</body>
+<script>
+    $(".startBtn").click(
+        function () {
+            $(".welcome").hide()
+            $(".game").show()
+        }
+    );
+</script>
+<SCRIPT type="text/javascript">
+    var maxtime = 30; //一个小时，按秒计算，自己调整!
+    $("#startGame").click(function () {
+        timer = setInterval("CountDown()", 1000);
+    })
+    function CountDown() {
+        if (maxtime >= 0) {
+            minutes = Math.floor(maxtime / 60);
+            seconds = Math.floor(maxtime % 60);
+            msg = seconds;
+            document.all["timer"].innerHTML = msg;
+            --maxtime;
+        } else{
+            clearInterval(timer);
+        }
+    }
+</SCRIPT>
+</html>
